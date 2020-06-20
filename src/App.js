@@ -58,7 +58,7 @@ class App extends React.Component{
     {
         return(
             <div className='app'>
-                <h1>
+                <h1 className='heading1'>
                     ExamBazaar
                 </h1>
                 <div id="buttons">

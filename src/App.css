@@ -1,8 +1,8 @@
 #root,html,body{
     margin:0;
     padding: 0;
+    background:url('./images/back1.jpg');
     
-    box-sizing: border-box;
 }
 #maindiv{
     margin:30px;
@@ -17,9 +17,6 @@
 }
 .app{
     height: 100%;
-    background:url('./images/back1.jpg');
-    background-size: cover;
-    background-position: center;
     
     justify-content: center;
     text-align: center;
@@ -28,7 +25,7 @@
 #buttons{
 height: 40px;
 width: 100%;
-margin-top: 50px;
+margin-top: 30px;
 background-color: coral;
 }
 #b1{
@@ -36,13 +33,14 @@ background-color: coral;
     margin: 7px;
     border-width: 0;
     background-color: coral;
-    
+    font-size: 17px;
 }
 .card{
     margin-top: 0px;
     margin-left: 0px;
     text-align: left;
-   float: left;
+    float: left;
+    
     background-color: cornsilk;
     width: fit-content;
     font-size: 25px;
@@ -51,10 +49,36 @@ background-color: coral;
 }
 .list{
     list-style: none;
+    width: 200px;
+    
 }
 .listitem{
     border-bottom:.5px solid rgb(219, 183, 183);
     width: 100%;
     margin-left: 0px;
+    height: 130px;
+    padding: 0;
+    background-color: palegoldenrod;
+}
+.btnexm{
+    background-color: lightcoral;
+    height: 40px;
+    border-width: 0px;
+    width: 100%;
+    
+}
+.btndir{
+    background-color: lightsalmon;
     height: 30px;
+    border-width: 0px;
+    width: 60%;
+    margin-left: 20px;
+    border-radius: 2px;
+}
+.heading1{
+    margin-top: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+    text-align: right;
+    margin-right: 20px;
 }

@@ -21,6 +21,7 @@ function GetPrevQuestion() {
     var ques=quesArray[index-2].questiona;
     var stat=quesArray[index-2].statementa;
     var opt=quesArray[index-2].optionsa;
+    index=index-1;
     const answers = opt.map(e=>{
         return(
           `<label>
@@ -50,6 +51,17 @@ function RenderQuestion(id)
       const question = response.data.data.question.questions[0];
       const statement = question.question;
       const options = question.options;
+      const img=response.data.data.question.images;
+      if(img!==null)
+      {
+        for(var i=0;i<img.length;i++)
+        {
+            const img1=img[i];
+            return(`<img src="${img1}" /><br>`)
+        }
+       
+      }
+
       const obj={
           questiona:question,
           statementa:statement,
@@ -59,10 +71,12 @@ function RenderQuestion(id)
       index=index+1;
         const answers = options.map(e=>{
         return(
-          `<label>
+          `
+          <label>
               <input type="radio" name="question${options.indexOf(e.option)}" value="${e.option}">
               ${e.option} 
             </label>
+           
             <br> </br>`);
       });
       const answerST = answers.join('');
@@ -91,15 +105,15 @@ const RenderExams=(props)=>{
         
            <ul className='list'>
        <li key={e._id} className='listitem'>
-       <button onClick={()=>RenderQuestion(e._id)}> {e.name}</button>
-       
+       <button onClick={()=>RenderQuestion(e._id)} className='btnexm'> {e.name}</button>
+       <li> 
+       <button onClick={()=>RenderQuestion(e._id)} className='btndir'> Next </button>
+       </li>
+       <li> 
+       <button onClick={()=>GetPrevQuestion()} className='btndir'> Previous </button>
+       </li>
         </li>
-       <li> 
-       <button onClick={()=>RenderQuestion(e._id)}> Next </button>
-       </li>
-       <li> 
-       <button onClick={()=>GetPrevQuestion()}> Previous </button>
-       </li>
+       
         </ul>
         
         );
