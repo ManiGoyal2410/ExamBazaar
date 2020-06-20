@@ -15,7 +15,7 @@ class App extends React.Component{
     componentDidMount(){
         this.fetchStream();
         //this.fetchExam();
-        this.getQues();
+       // this.getQues();
     }
     fetchStream=()=>{
         axios.get('https://www.exambazaar.com/api/coding-round/routes/exam-info/9928577901').then((response)=>{
@@ -40,7 +40,7 @@ class App extends React.Component{
             })
     }
     
-    getQues=()=>{
+    /*getQues=()=>{
         axios.post('https://www.exambazaar.com/api/coding-round/routes/random-question', {
             "api_key": "9928577901",
 "api_secret": "5ee9bee4376b540ffdc6c9ad",
@@ -52,7 +52,7 @@ class App extends React.Component{
           .catch(function (error) {
             console.log(error);
           });
-    }
+    }*/
     
     render()
     {
@@ -77,11 +77,15 @@ class App extends React.Component{
                     <button id="b1" onClick={()=>{this.fetchExam('5a9d473fafecc2120d6da0cb')}}>Design</button>
                     
                 </div>
+
+               
                 <div className='card'>
                     
                     <RenderExams exams={this.state.exams}/>
                     
                 </div>
+                <div id='maindiv'></div>
+                
             </div>
             
         

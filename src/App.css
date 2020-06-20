@@ -1,8 +1,19 @@
 #root,html,body{
     margin:0;
     padding: 0;
+    
+    box-sizing: border-box;
+}
+#maindiv{
+    margin:30px;
+    padding: 0;
     height: 100vh;
     box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    top: 0px;
+    float: left;
+    width: 60%;
 }
 .app{
     height: 100%;
@@ -31,7 +42,7 @@ background-color: coral;
     margin-top: 0px;
     margin-left: 0px;
     text-align: left;
-   
+   float: left;
     background-color: cornsilk;
     width: fit-content;
     font-size: 25px;
