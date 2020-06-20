@@ -24,14 +24,13 @@ function GetPrevQuestion() {
     const answers = opt.map(e=>{
         return(
           `<label>
-              <input type="radio" name="ques${opt.indexOf(e.option)}" value="${e.opt}">
-              ${e.opt} 
+              <input type="radio" name="ques${opt.indexOf(e.option)}" value="${e.option}">
+              ${e.option} 
             </label>
             <br> </br>`);
       });
       const answerST = answers.join('');
-
-      const questdiv = `
+        const questdiv = `
                         <br> </br>
                         <div>
                           <div class = "question" id = "ques">
