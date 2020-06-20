@@ -17,11 +17,19 @@ import '../App.css';
 }*/
 let quesArray=[];
 let index=0;
+let isFirst=true;
+function NewQuestion(id)
+{
+  //console.log('Next clicked');
+  RenderQuestion(id);
+}
 function GetPrevQuestion() {
+    
     var ques=quesArray[index-2].questiona;
     var stat=quesArray[index-2].statementa;
     var opt=quesArray[index-2].optionsa;
     index=index-1;
+    
     const answers = opt.map(e=>{
         return(
           `<label>
@@ -40,7 +48,22 @@ function GetPrevQuestion() {
                           </div>
                         </div>
       `;
-document.getElementById('maindiv').innerHTML=questdiv;
+      if(index===0)
+          {
+            
+            const prevBTN = document.getElementById('prevbtn');
+            prevBTN.disabled = true;
+            
+            console.log(prevBTN); 
+            isFirst=true;
+          }
+          else
+          {
+            const prevBTN = document.getElementById('prevbtn');
+            prevBTN.disabled = false;
+            document.getElementById('maindiv').innerHTML=questdiv;
+          }
+
 }
 function RenderQuestion(id)
 {
@@ -90,13 +113,45 @@ function RenderQuestion(id)
                           </div>
                         </div>
       `;
+      if(isFirst)
+      {
+        const buttonHTML = `
+        <div style="margin-left: 15px">
+        <ButtonGroup>
+          <Button id="prevbtn" color="primary">Previous</Button>
+          <Button id="nextbtn" color="secondary">Next</Button>
+        </ButtonGroup>
+        </div>`
+        ;
+        document.getElementById('maindiv').insertAdjacentHTML('afterend',buttonHTML);
+              const nextBTN = document.getElementById('nextbtn');
+              nextBTN.onclick = function() {NewQuestion(id);};
+              const prevBTN = document.getElementById('prevbtn');
+              prevBTN.onclick = function() {GetPrevQuestion();};
+              prevBTN.disabled = true;
+              console.log(nextBTN);
+              console.log(prevBTN); 
+              
+      }
+      else
+      {
+        const prevBTN = document.getElementById('prevbtn');
+        prevBTN.disabled = false;
+        const nextBTN = document.getElementById('nextbtn');
+        nextBTN.onclick = function() {NewQuestion(id);};
+        
+      }
+      
 document.getElementById('maindiv').innerHTML=questdiv;
- //console.log(question);
+isFirst=false;
+
       console.log(statement);
       console.log(options);
     }, (error) => {
       console.log(error);
     });
+    
+
 }
 const RenderExams=(props)=>{
     const exams=props.exams;
@@ -106,12 +161,8 @@ const RenderExams=(props)=>{
            <ul className='list'>
        <li key={e._id} className='listitem'>
        <button onClick={()=>RenderQuestion(e._id)} className='btnexm'> {e.name}</button>
-       <li> 
-       <button onClick={()=>RenderQuestion(e._id)} className='btndir'> Next </button>
-       </li>
-       <li> 
-       <button onClick={()=>GetPrevQuestion()} className='btndir'> Previous </button>
-       </li>
+       
+       
         </li>
        
         </ul>
