@@ -15,15 +15,49 @@ import '../App.css';
         console.log(error);
       });
 }*/
+let quesArray=[];
+let index=0;
+function GetPrevQuestion() {
+    var ques=quesArray[index-2].questiona;
+    var stat=quesArray[index-2].statementa;
+    var opt=quesArray[index-2].optionsa;
+    const answers = opt.map(e=>{
+        return(
+          `<label>
+              <input type="radio" name="ques${opt.indexOf(e.option)}" value="${e.opt}">
+              ${e.opt} 
+            </label>
+            <br> </br>`);
+      });
+      const answerST = answers.join('');
+
+      const questdiv = `
+                        <br> </br>
+                        <div>
+                          <div class = "question" id = "ques">
+                            <p style="font-size: 18px">Ques. ${stat}</p>
+                            ${answerST}
+                          </div>
+                        </div>
+      `;
+document.getElementById('maindiv').innerHTML=questdiv;
+}
 function RenderQuestion(id)
 {
   //document.getElementById('maindiv').innerHTML="";
     const quesurl = 'https://www.exambazaar.com/api/coding-round/routes/random-question';
-    axios.post(quesurl, {"api_key": "9166408289", "api_secret": "5ee9a6dbe2eb165d3e5e8174", "examId":id})
+    axios.post(quesurl, {"api_key": "9928577901", "api_secret": "5ee9bee4376b540ffdc6c9ad", "examId":id})
     .then((response) => {
       const question = response.data.data.question.questions[0];
       const statement = question.question;
       const options = question.options;
+      const obj={
+          questiona:question,
+          statementa:statement,
+          optionsa:options
+      }
+      quesArray.push(obj);
+      index=index+1;
         const answers = options.map(e=>{
         return(
           `<label>
@@ -63,6 +97,9 @@ const RenderExams=(props)=>{
         </li>
        <li> 
        <button onClick={()=>RenderQuestion(e._id)}> Next </button>
+       </li>
+       <li> 
+       <button onClick={()=>GetPrevQuestion()}> Previous </button>
        </li>
         </ul>
         
