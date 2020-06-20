@@ -1,0 +1,49 @@
+#root,html,body{
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.app{
+    height: 100%;
+    background:url('./images/back1.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    justify-content: center;
+    text-align: center;
+    
+}
+#buttons{
+height: 40px;
+width: 100%;
+margin-top: 50px;
+background-color: coral;
+}
+#b1{
+    height: 25px;
+    margin: 7px;
+    border-width: 0;
+    background-color: coral;
+    
+}
+.card{
+    margin-top: 0px;
+    margin-left: 0px;
+    text-align: left;
+   
+    background-color: cornsilk;
+    width: fit-content;
+    font-size: 25px;
+    height: 100%;
+    border-right: .5px solid rgb(219, 183, 183);
+}
+.list{
+    list-style: none;
+}
+.listitem{
+    border-bottom:.5px solid rgb(219, 183, 183);
+    width: 100%;
+    margin-left: 0px;
+    height: 30px;
+}
