@@ -84,8 +84,10 @@ class App extends React.Component{
                     <RenderExams exams={this.state.exams}/>
                     
                 </div>
-                <div id='maindiv'></div>
+                <div id='maindiv'>
                 
+                </div>
+                <div id='imgdiv'></div>
             </div>
             
         

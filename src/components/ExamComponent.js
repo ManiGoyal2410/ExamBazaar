@@ -75,16 +75,24 @@ function RenderQuestion(id)
       const statement = question.question;
       const options = question.options;
       const img=response.data.data.question.images;
+      const mcqma = question.mcqma;
       if(img!==null)
       {
         for(var i=0;i<img.length;i++)
         {
-            const img1=img[i];
-            return(`<img src="${img1}" /><br>`)
+            var img1=img[i];
+            console.log(img1);
+           var imgage= `<div><img src="${img1}" alt="image"/></div><br>`;
+           document.getElementById('imgdiv').innerHTML=imgage;
+           //console.log(document.getElementById('maindiv').insertAdjacentHTML('beforeend',imgage))
+           console.log(imgage)
         }
        
       }
-
+      if(img==null)
+      {
+        document.getElementById('imgdiv').innerHTML="";
+      }
       const obj={
           questiona:question,
           statementa:statement,
