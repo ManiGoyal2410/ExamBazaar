@@ -57,7 +57,7 @@ background-color: coral;
     border-bottom:.5px solid rgb(219, 183, 183);
     width: 100%;
     margin-left: 0px;
-    height: 130px;
+    height: 60px;
     padding: 0;
     background-color: palegoldenrod;
 }
@@ -72,8 +72,9 @@ background-color: coral;
     background-color: lightsalmon;
     height: 30px;
     border-width: 0px;
-    width: 60%;
-    margin-left: 20px;
+   margin-right: 5px;
+   width: 80px;
+    margin-top: 20px;
     border-radius: 2px;
 }
 .heading1{
