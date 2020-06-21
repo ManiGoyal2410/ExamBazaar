@@ -72,7 +72,7 @@ function NewQuestion(id)
 }
 function GetPrevQuestion() {
     index=index-1;
-    var ques=quesArray[index-1].questiona;
+    //var ques=quesArray[index-1].questiona;
     var stat=quesArray[index-1].statementa;
     var opt=quesArray[index-1].optionsa;
     var img=quesArray[index-1].imga;
